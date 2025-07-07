@@ -4,7 +4,7 @@ metadata:
   name: flask-app
   namespace: flask-app
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: flask-app
@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: flask-app
-          image: ghcr.io/kgaweda/flask-log-training:v1.0.0
+          image: ghcr.io/kgaweda/flask-log-training:v1.0.1
           ports:
             - containerPort: 8080
