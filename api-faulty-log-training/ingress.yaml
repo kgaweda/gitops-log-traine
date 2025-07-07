@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: api-app
+  namespace: api-app
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-cloudflare
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  rules:
+    - host: app2.linuxlab.ovh
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: api-app
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - app2.linuxlab.ovh
+      secretName: api-app-tls
