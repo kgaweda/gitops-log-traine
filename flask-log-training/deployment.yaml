@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: flask-app
-          image: YOUR_REGISTRY/flask-app:latest
+          image: ghcr.io/kgaweda/flask-log-training:v1.0.0
           ports:
             - containerPort: 8080
