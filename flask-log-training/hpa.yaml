@@ -1,15 +1,15 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: api-app
-  namespace: api-app
+  name: flask-app
+  namespace: flask-app
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: api-app
+    name: flask-app
   minReplicas: 1
-  maxReplicas: 40
+  maxReplicas: 10
   metrics:
     - type: Resource
       resource:
